@@ -1,9 +1,9 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
+  resources :games
   devise_for :users
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 
-  # This will be needed for devise once there is an actual route to be root
-  # root to: "home#index"
+  root to: 'games#index'
 end
