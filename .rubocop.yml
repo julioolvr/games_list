@@ -25,6 +25,9 @@ Style/AccessorGrouping:
 Style/BisectedAttrAccessor:
   Enabled: true
 
+Style/Documentation:
+  Enabled: false
+
 Style/ExponentialNotation:
   Enabled: true
 
