@@ -58,3 +58,6 @@ Style/SlicingWithRange:
 Rails/FilePath:
   Enabled: true
   EnforcedStyle: arguments
+
+Rails/HasAndBelongsToMany:
+  Enabled: false # At least for now
