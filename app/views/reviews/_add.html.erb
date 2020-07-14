@@ -1,0 +1,6 @@
+<%= form_with model: @review do |f| %>
+  <%= f.label 'Review' %>
+  <%= f.text_field :body %>
+  <%= f.label 'Score' %>
+  <%= f.number_field :score %>
+<% end %>

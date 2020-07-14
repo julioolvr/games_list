@@ -11,7 +11,9 @@ class GamesController < ApplicationController
 
   # GET /games/1
   # GET /games/1.json
-  def show; end
+  def show
+    @review = Review.find_by(game: @game, user: current_user)
+  end
 
   # GET /games/new
   def new
