@@ -1,9 +1,18 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
-  resources :games
   devise_for :users
-  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
+  devise_for :admin_users
 
   root to: 'games#index'
+  resources :games
+
+  namespace :admin do
+    resources :users
+    resources :platforms
+    resources :reviews
+    resources :games
+
+    root to: 'users#index'
+  end
 end
