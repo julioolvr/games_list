@@ -12,6 +12,7 @@ class GroupDashboard < Administrate::BaseDashboard
   ATTRIBUTE_TYPES = {
     id: Field::Number,
     name: Field::String,
+    users: Field::HasMany,
     created_at: Field::DateTime,
     updated_at: Field::DateTime
   }.freeze
@@ -33,6 +34,7 @@ class GroupDashboard < Administrate::BaseDashboard
   SHOW_PAGE_ATTRIBUTES = %i[
     id
     name
+    users
     created_at
     updated_at
   ].freeze
@@ -59,7 +61,7 @@ class GroupDashboard < Administrate::BaseDashboard
   # Overwrite this method to customize how groups are displayed
   # across all pages of the admin dashboard.
   #
-  # def display_resource(group)
-  #   "Group ##{group.id}"
-  # end
+  def display_resource(group)
+    group.name
+  end
 end

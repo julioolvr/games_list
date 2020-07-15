@@ -61,3 +61,6 @@ Rails/FilePath:
 
 Rails/HasAndBelongsToMany:
   Enabled: false # At least for now
+
+Rails/NotNullColumn:
+  Enabled: false # We want to be able to add new non-null columns

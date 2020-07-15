@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_07_15_025435) do
+ActiveRecord::Schema.define(version: 2020_07_15_030511) do
 
   create_table "admin_users", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -66,10 +66,13 @@ ActiveRecord::Schema.define(version: 2020_07_15_025435) do
     t.datetime "remember_created_at"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "group_id", null: false
     t.index ["email"], name: "index_users_on_email", unique: true
+    t.index ["group_id"], name: "index_users_on_group_id"
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
   add_foreign_key "reviews", "games"
   add_foreign_key "reviews", "users"
+  add_foreign_key "users", "groups"
 end
