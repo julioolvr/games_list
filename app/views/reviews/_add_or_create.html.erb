@@ -3,7 +3,7 @@
     <%= f.label 'My review' %>
     <%= f.text_field :body %>
     <%= f.label 'Score' %>
-    <%= f.number_field :score %>
+    <%= f.collection_radio_buttons :score, [-1, 0, 1, 2], :to_i, :to_s %>
     <%= f.hidden_field :game_id %>
   </fieldset>
 
