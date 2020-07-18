@@ -1,18 +1,24 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Games</h1>
-
 <%= search_form_for @q do |f| %>
-  <%= f.label :name_cont %>
-  <%= f.search_field :name_cont %>
+  <div class="form-row">
+    <div class="form-group col-md">
+      <%= f.label :name %>
+      <%= f.search_field :name_cont, class: 'form-control' %>
+    </div>
 
-  <%= f.label :platform %>
-  <%= f.collection_select :platforms_id_eq, Platform.all, :id, :name, include_blank: true %>
+    <div class="form-group col-md">
+      <%= f.label :platform %>
+      <%=
+        f.collection_select :platforms_id_eq, Platform.all, :id, :name, { include_blank: 'All' }, class: 'form-control'
+      %>
+    </div>
+  </div>
 
-  <%= f.submit %>
+  <%= f.submit(class: 'btn btn-secondary') %>
 <% end %>
 
-<table>
+<table class="table mt-3">
   <thead>
     <tr>
       <th>Name</th>
@@ -25,7 +31,11 @@
     <% @games.each do |game| %>
       <tr>
         <td><%= game.name %></td>
-        <td><%= game.platforms.pluck(:name).join(', ') %></td>
+        <td>
+          <% game.platforms.each do |platform| %>
+            <span class="badge badge-pill badge-info"><%= platform.name %></span>
+          <% end %>
+        </td>
         <td><%= link_to 'Show', game %></td>
         <td><%= link_to 'Edit', edit_game_path(game) %></td>
         <td><%= link_to 'Destroy', game, method: :delete, data: { confirm: 'Are you sure?' } %></td>

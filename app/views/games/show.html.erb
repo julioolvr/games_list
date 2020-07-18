@@ -1,13 +1,11 @@
-<p id="notice"><%= notice %></p>
-
-<p>
-  <strong>Name:</strong>
-  <%= @game.name %>
-</p>
+<h1><%= @game.name %></h1>
 
 <p>
   <strong>Platforms:</strong>
-  <%= @game.platforms.pluck(:name).join(', ') %>
+
+  <% @game.platforms.each do |platform| %>
+    <span class="badge badge-pill badge-info"><%= platform.name %></span>
+  <% end %>
 </p>
 
 <p>

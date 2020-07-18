@@ -10,9 +10,16 @@
   </head>
 
   <body>
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
+    <div class="container">
+      <% if notice.present? %>
+        <p class="alert alert-primary"><%= notice %></p>
+      <% end %>
 
-    <%= yield %>
+      <% if alert.present? %>
+        <p class="alert alert-danger"><%= alert %></p>
+      <% end %>
+
+      <%= yield %>
+    </div>
   </body>
 </html>

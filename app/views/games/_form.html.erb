@@ -11,17 +11,29 @@
     </div>
   <% end %>
 
-  <div class="field">
+  <div class="form-group">
     <%= form.label :name %>
-    <%= form.text_field :name %>
+    <%=
+      form.text_field(
+        :name,
+        class: class_names('form-control' => true, 'is-invalid': game.errors[:name].any?),
+        required: false
+      )
+    %>
   </div>
 
-  <div class="field">
+  <div class="form-group">
     <%= form.label :platform_ids %>
-    <%= form.select(:platform_ids, Platform.all.pluck(:name, :id), {}, multiple: true) %>
+    <%=
+      form.select(
+        :platform_ids,
+        Platform.all.pluck(:name, :id),
+        {},
+        multiple: true,
+        class: class_names('form-control' => true, 'is-invalid': game.errors[:platforms].any?)
+      )
+    %>
   </div>
 
-  <div class="actions">
-    <%= form.submit %>
-  </div>
+  <%= form.submit(class: 'btn btn-primary') %>
 <% end %>

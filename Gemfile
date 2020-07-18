@@ -29,6 +29,7 @@ gem 'jbuilder', '~> 2.7'
 gem 'bootsnap', '>= 1.4.2', require: false
 
 gem 'administrate'
+gem 'bootstrap', '~> 4.5.0'
 gem 'devise'
 gem 'pry-rails'
 gem 'pundit'
