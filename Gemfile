@@ -32,6 +32,7 @@ gem 'administrate'
 gem 'devise'
 gem 'pry-rails'
 gem 'pundit'
+gem 'ransack'
 gem 'seed-fu', '~> 2.3'
 
 group :development, :test do

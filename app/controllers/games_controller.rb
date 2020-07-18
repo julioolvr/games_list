@@ -6,7 +6,8 @@ class GamesController < ApplicationController
   # GET /games
   # GET /games.json
   def index
-    @games = policy_scope(Game)
+    @q = Game.ransack(params[:q])
+    @games = policy_scope(@q.result)
   end
 
   # GET /games/1

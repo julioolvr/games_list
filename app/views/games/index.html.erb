@@ -2,6 +2,16 @@
 
 <h1>Games</h1>
 
+<%= search_form_for @q do |f| %>
+  <%= f.label :name_cont %>
+  <%= f.search_field :name_cont %>
+
+  <%= f.label :platform %>
+  <%= f.collection_select :platforms_id_eq, Platform.all, :id, :name, include_blank: true %>
+
+  <%= f.submit %>
+<% end %>
+
 <table>
   <thead>
     <tr>
