@@ -5,6 +5,11 @@
   <%= @game.name %>
 </p>
 
+<p>
+  <strong>Platforms:</strong>
+  <%= @game.platforms.pluck(:name).join(', ') %>
+</p>
+
 <%= render 'reviews/add', game: @game %>
 
 <%= link_to 'Edit', edit_game_path(@game) %>
