@@ -7,9 +7,14 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   belongs_to :group
+  has_many :reviews, dependent: :destroy
 
   def username
     self[:username] || email
+  end
+
+  def reviewed?(game)
+    reviews.where(game: game).any?
   end
 
   private

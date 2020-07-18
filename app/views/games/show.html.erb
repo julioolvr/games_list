@@ -17,9 +17,9 @@
     <ul>
       <% @other_reviews.each do |review| %>
         <li>
+          <%= score_icon(review.score) %>
           <%= review.body %>
-          <%= review.score %>
-          <%= review.user.username %>
+          <em><%= review.user.username %></em>
         </li>
       <% end %>
     </ul>

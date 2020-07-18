@@ -5,7 +5,7 @@
   </div>
 
   <%= f.label 'Score' %>
-  <%= f.collection_radio_buttons :score, [-1, 0, 1, 2], :to_i, :to_s do |b| %>
+  <%= f.collection_radio_buttons :score, Review::SCORES, :to_i, -> (score) { score_icon(score) || score } do |b| %>
     <div class="form-check">
       <%= b.radio_button(class: 'form-check-input') + b.label(class: 'form-check-label') %>
     </div>

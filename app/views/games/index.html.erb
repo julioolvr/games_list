@@ -23,6 +23,7 @@
     <tr>
       <th>Name</th>
       <th>Platforms</th>
+      <th>Reviews</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -34,6 +35,23 @@
         <td>
           <% game.platforms.each do |platform| %>
             <span class="badge badge-pill badge-info"><%= platform.name %></span>
+          <% end %>
+        </td>
+        <td>
+          <% if game.reviews.any? %>
+            <% if game.reviews.stars.any? %>
+              <div><%= score_icon(Review::STAR) %> x<%= game.reviews.stars.count %></div>
+            <% end %>
+
+            <% if game.reviews.up.any? %>
+              <div><%= score_icon(Review::THUMBS_UP) %> x<%= game.reviews.up.count %></div>
+            <% end %>
+
+            <% if game.reviews.down.any? %>
+              <div><%= score_icon(Review::THUMBS_DOWN) %> x<%= game.reviews.down.count %></div>
+            <% end %>
+          <% else %>
+            <em>None</em>
           <% end %>
         </td>
         <td><%= link_to 'Show', game %></td>
