@@ -22,6 +22,9 @@ Lint/StructNewOverride:
 Metrics/AbcSize:
   Max: 25
 
+Metrics/MethodLength:
+  Max: 20
+
 Style/AccessorGrouping:
   Enabled: true
 

@@ -31,6 +31,7 @@ gem 'bootsnap', '>= 1.4.2', require: false
 gem 'administrate'
 gem 'devise'
 gem 'pry-rails'
+gem 'pundit'
 gem 'seed-fu', '~> 2.3'
 
 group :development, :test do

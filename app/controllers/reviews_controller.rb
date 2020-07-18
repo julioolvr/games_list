@@ -7,6 +7,7 @@ class ReviewsController < ApplicationController
   # POST /reviews.json
   def create
     @review = Review.new(review_params.merge(user: current_user))
+    authorize @review
 
     respond_to do |format|
       if @review.save
@@ -37,8 +38,8 @@ class ReviewsController < ApplicationController
 
   # Use callbacks to share common setup or constraints between actions.
   def set_review
-    # TODO: Use pundit to validate the user only has access to their own reviews
     @review = Review.find(params[:id])
+    authorize @review
   end
 
   # Only allow a list of trusted parameters through.

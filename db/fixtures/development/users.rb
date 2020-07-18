@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-group, = Group.seed(:name, { name: 'Default Group' })
+group = Group.first
 
 User.seed(
   :email,

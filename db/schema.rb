@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_07_18_005855) do
+ActiveRecord::Schema.define(version: 2020_07_18_022752) do
 
   create_table "admin_users", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -28,6 +28,8 @@ ActiveRecord::Schema.define(version: 2020_07_18_005855) do
     t.string "name"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "group_id", null: false
+    t.index ["group_id"], name: "index_games_on_group_id"
   end
 
   create_table "games_platforms", id: false, force: :cascade do |t|
@@ -73,6 +75,7 @@ ActiveRecord::Schema.define(version: 2020_07_18_005855) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "games", "groups"
   add_foreign_key "reviews", "games"
   add_foreign_key "reviews", "users"
   add_foreign_key "users", "groups"
