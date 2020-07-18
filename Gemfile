@@ -30,8 +30,8 @@ gem 'bootsnap', '>= 1.4.2', require: false
 
 gem 'administrate'
 gem 'devise'
-gem 'seed-fu', '~> 2.3'
 gem 'pry-rails'
+gem 'seed-fu', '~> 2.3'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

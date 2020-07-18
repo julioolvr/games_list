@@ -10,7 +10,27 @@
   <%= @game.platforms.pluck(:name).join(', ') %>
 </p>
 
-<%= render 'reviews/add', game: @game %>
+<p>
+  <strong>Reviews:</strong>
+
+  <% if @game.reviews.empty? %>
+    <em>None</em>
+  <% else %>
+    <ul>
+      <% @other_reviews.each do |review| %>
+        <li>
+          <%= review.body %>
+          <%= review.score %>
+          <%= review.user.username %>
+        </li>
+      <% end %>
+    </ul>
+  <% end %>
+</p>
+
+<p>
+  <%= render partial: 'reviews/add_or_create', locals: { review: @own_review } %>
+</p>
 
 <%= link_to 'Edit', edit_game_path(@game) %>
 <%= link_to 'Back', games_path %>

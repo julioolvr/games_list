@@ -7,4 +7,14 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   belongs_to :group
+
+  def username
+    self[:username] || email
+  end
+
+  private
+
+  def username_from_email
+    Mail::Addresss.new(email).local
+  end
 end

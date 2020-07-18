@@ -12,7 +12,9 @@ class GamesController < ApplicationController
   # GET /games/1
   # GET /games/1.json
   def show
-    @review = Review.find_by(game: @game, user: current_user)
+    all_reviews = @game.reviews
+    @own_review = all_reviews.find_by(user: current_user) || Review.new(game: @game)
+    @other_reviews = all_reviews - [@own_review]
   end
 
   # GET /games/new

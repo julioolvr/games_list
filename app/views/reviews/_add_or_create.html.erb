@@ -1,0 +1,11 @@
+<%= form_with model: review do |f| %>
+  <fieldset>
+    <%= f.label 'My review' %>
+    <%= f.text_field :body %>
+    <%= f.label 'Score' %>
+    <%= f.number_field :score %>
+    <%= f.hidden_field :game_id %>
+  </fieldset>
+
+  <%= f.submit 'Save review' %>
+<% end %>

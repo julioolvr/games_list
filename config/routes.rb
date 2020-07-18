@@ -5,7 +5,9 @@ Rails.application.routes.draw do
   devise_for :admin_users
 
   root to: 'games#index'
+
   resources :games
+  resources :reviews, only: %i[create update]
 
   namespace :admin do
     resources :games

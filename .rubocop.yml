@@ -19,6 +19,9 @@ Lint/RaiseException:
 Lint/StructNewOverride:
   Enabled: true
 
+Metrics/AbcSize:
+  Max: 25
+
 Style/AccessorGrouping:
   Enabled: true
 
