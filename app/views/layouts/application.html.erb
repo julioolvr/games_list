@@ -10,6 +10,17 @@
   </head>
 
   <body>
+    <nav class="navbar mb-4">
+      <div class="navbar-brand">#aca-se-vicia</div>
+      <div>
+        <% if user_signed_in? %>
+          <%= link_to('Logout', destroy_user_session_path, method: :delete) %>
+        <% else %>
+          <%= link_to('Login', new_user_session_path) %>
+        <% end %>
+      </div>
+    </nav>
+
     <div class="container">
       <% if notice.present? %>
         <p class="alert alert-primary"><%= notice %></p>
