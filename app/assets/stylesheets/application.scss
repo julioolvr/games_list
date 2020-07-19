@@ -11,6 +11,8 @@
  * It is generally better to create a new file per style scope.
  */
 
-@import 'common/dark_mode';
-
 @import "bootstrap";
+
+@media (prefers-color-scheme: dark) {
+  @import "bootstrap-dark.scss";
+}

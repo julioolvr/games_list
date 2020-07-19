@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-module GamesHelper
+module ReviewsHelper
   def score_icon(score)
     case score
     when Review::THUMBS_DOWN
