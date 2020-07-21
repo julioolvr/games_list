@@ -4,7 +4,7 @@
   <strong>Platforms:</strong>
 
   <% @game.platforms.each do |platform| %>
-    <span class="badge badge-pill badge-info"><%= platform.name %></span>
+    <%= platform_badge(platform) %>
   <% end %>
 </p>
 
