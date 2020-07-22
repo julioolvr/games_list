@@ -40,7 +40,12 @@
         <td>
           <% if game.reviews.any? %>
             <% if game.reviews.stars.any? %>
-              <div><%= score_icon(Review::STAR) %> x<%= game.reviews.stars.count %></div>
+              <div>
+                <%= score_icon(Review::STAR) %>
+                <% game.reviews.stars.each do |review| %>
+                  <img src="<%= avatar_url(review.user) %>" class="avatar" />
+                <% end %>
+              </div>
             <% end %>
 
             <% if game.reviews.up.any? %>
