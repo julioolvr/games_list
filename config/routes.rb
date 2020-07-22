@@ -1,7 +1,10 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
-  devise_for :users, controllers: { sessions: 'auth/sessions' }
+  devise_for :users,
+             controllers: {
+               sessions: 'auth/sessions', registrations: 'auth/registrations'
+             }
   devise_for :admin_users, controllers: { sessions: 'auth/sessions' }
 
   root to: 'games#index'
