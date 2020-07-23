@@ -3,7 +3,7 @@
 Rails.application.routes.draw do
   devise_for :users,
              controllers: {
-               sessions: 'auth/sessions', registrations: 'auth/registrations'
+               sessions: 'auth/sessions', registrations: 'auth/registrations', invitations: 'auth/invitations'
              }
   devise_for :admin_users, controllers: { sessions: 'auth/sessions' }
 

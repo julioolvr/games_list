@@ -31,6 +31,7 @@ gem 'bootsnap', '>= 1.4.2', require: false
 gem 'administrate'
 gem 'bootstrap', '~> 4.5.0'
 gem 'devise'
+gem 'devise_invitable', '~> 2.0.0'
 gem 'pry-rails'
 gem 'pundit'
 gem 'ransack'
@@ -53,6 +54,7 @@ group :development do
 
   gem 'faker'
   gem 'lefthook'
+  gem 'letter_opener'
   gem 'rubocop', require: false
   gem 'rubocop-rails', require: false
 end

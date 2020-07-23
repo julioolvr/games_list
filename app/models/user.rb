@@ -1,9 +1,7 @@
 # frozen_string_literal: true
 
 class User < ApplicationRecord
-  # Include default devise modules. Others available are:
-  # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
-  devise :database_authenticatable, :registerable,
+  devise :invitable, :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
   belongs_to :group
@@ -15,6 +13,19 @@ class User < ApplicationRecord
 
   def reviewed?(game)
     reviews.where(game: game).any?
+  end
+
+  def self.invite!(attributes = {}, invited_by = nil, options = {}, &block)
+    if invited_by.present?
+      super(
+        attributes.merge(group_id: invited_by.group_id),
+        invited_by,
+        options,
+        &block
+      )
+    else
+      super
+    end
   end
 
   private
