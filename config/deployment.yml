@@ -1,0 +1,13 @@
+default: &default
+
+development:
+  <<: *default
+  host: http://localhost
+  port: 3000
+
+test:
+  <<: *default
+  host: http://test.com
+
+production:
+  <<: *default

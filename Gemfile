@@ -29,6 +29,7 @@ gem 'jbuilder', '~> 2.7'
 gem 'bootsnap', '>= 1.4.2', require: false
 
 gem 'administrate'
+gem 'anyway_config', '~> 2.0.0'
 gem 'bootstrap', '~> 4.5.0'
 gem 'devise'
 gem 'devise_invitable', '~> 2.0.0'
@@ -69,6 +70,7 @@ end
 
 group :production do
   gem 'pg'
+  gem 'sendgrid-actionmailer'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
