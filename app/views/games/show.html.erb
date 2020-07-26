@@ -9,20 +9,21 @@
 </p>
 
 <p>
-  <strong>Reviews:</strong>
-
   <% if @game.reviews.empty? %>
     <em>None</em>
   <% else %>
-    <ul>
-      <% @other_reviews.each do |review| %>
-        <li>
-          <%= score_icon(review.score) %>
-          <%= review.body %>
+    <% @other_reviews.each do |review| %>
+      <div class="row bg-light text-dark mb-2 p-2 rounded">
+        <div class="col-1">
+          <div><%= score_icon(review.score) || '-' %></div>
           <em><%= review.user.username %></em>
-        </li>
-      <% end %>
-    </ul>
+        </div>
+
+        <div class="col">
+          <p><%= review.body %></p>
+        </div>
+      </div>
+    <% end %>
   <% end %>
 </p>
 
