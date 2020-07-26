@@ -7,6 +7,7 @@ class GamesController < ApplicationController
   # GET /games.json
   def index
     @q = Game.ransack(params[:q])
+    @q.sorts = 'rating desc' if @q.sorts.empty?
     @games = policy_scope(@q.result)
   end
 

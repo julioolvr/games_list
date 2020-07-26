@@ -21,9 +21,9 @@
 <table class="table mt-3">
   <thead>
     <tr>
-      <th>Name</th>
+      <th><%= sort_link(@q, :name) %></th>
       <th>Platforms</th>
-      <th>Reviews</th>
+      <th><%= sort_link(@q, :rating, 'Reviews', default_order: :desc) %></th>
       <th colspan="2"></th>
     </tr>
   </thead>
