@@ -8,7 +8,7 @@ class User < ApplicationRecord
   has_many :reviews, dependent: :destroy
 
   def username
-    self[:username] || email
+    self[:username] || username_from_email
   end
 
   def reviewed?(game)
@@ -31,6 +31,6 @@ class User < ApplicationRecord
   private
 
   def username_from_email
-    Mail::Addresss.new(email).local
+    Mail::Address.new(email).local
   end
 end
