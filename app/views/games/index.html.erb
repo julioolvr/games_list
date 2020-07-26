@@ -40,20 +40,30 @@
         <td>
           <% if game.reviews.any? %>
             <% if game.reviews.stars.any? %>
-              <div>
+              <div class="row">
                 <%= score_icon(Review::STAR) %>
                 <% game.reviews.stars.each do |review| %>
-                  <img src="<%= avatar_url(review.user) %>" class="avatar" />
+                  <%= render partial: 'users/avatar', locals: { user: review.user } %>
                 <% end %>
               </div>
             <% end %>
 
             <% if game.reviews.up.any? %>
-              <div><%= score_icon(Review::THUMBS_UP) %> x<%= game.reviews.up.count %></div>
+              <div class="row">
+                <%= score_icon(Review::THUMBS_UP) %>
+                <% game.reviews.up.each do |review| %>
+                  <%= render partial: 'users/avatar', locals: { user: review.user } %>
+                <% end %>
+              </div>
             <% end %>
 
             <% if game.reviews.down.any? %>
-              <div><%= score_icon(Review::THUMBS_DOWN) %> x<%= game.reviews.down.count %></div>
+              <div class="row">
+                <%= score_icon(Review::THUMBS_DOWN) %>
+                <% game.reviews.down.each do |review| %>
+                  <%= render partial: 'users/avatar', locals: { user: review.user } %>
+                <% end %>
+              </div>
             <% end %>
           <% else %>
             <em>None</em>
