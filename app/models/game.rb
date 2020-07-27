@@ -8,6 +8,6 @@ class Game < ApplicationRecord
   validates :name, presence: true
   validates :platforms, presence: true
 
-  scope :sort_by_rating_desc, -> { joins(:reviews).group(:game_id).order('SUM(score) DESC') }
-  scope :sort_by_rating_asc, -> { joins(:reviews).group(:game_id).order('SUM(score) ASC') }
+  scope :sort_by_rating_desc, -> { joins(:reviews).group(:id).order('SUM(score) DESC') }
+  scope :sort_by_rating_asc, -> { joins(:reviews).group(:id).order('SUM(score) ASC') }
 end
