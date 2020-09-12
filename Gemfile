@@ -41,7 +41,6 @@ gem 'seed-fu', '~> 2.3'
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
-  gem 'skylight'
   # Use sqlite3 as the database for Active Record
   gem 'sqlite3', '~> 1.4'
 end
@@ -59,6 +58,10 @@ group :development do
   gem 'letter_opener'
   gem 'rubocop', require: false
   gem 'rubocop-rails', require: false
+end
+
+group :development, :production do
+  gem 'skylight'
 end
 
 group :test do
