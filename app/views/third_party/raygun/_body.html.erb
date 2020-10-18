@@ -1,4 +1,20 @@
+<script defer src="https://unpkg.com/web-vitals@0.2.4/dist/web-vitals.es5.umd.min.js"></script>
+
 <script type="text/javascript">
   rg4js('apiKey', '<%= RaygunConfig.rum_apikey %>');
   rg4js('enablePulse', true);
+
+  addEventListener('DOMContentLoaded', function() {
+    // webVitals.getCLS(console.log);
+    webVitals.getFID(reportMetric);
+    webVitals.getLCP(reportMetric);
+  });
+
+  function reportMetric(metric) {
+    rg4js('trackEvent', {
+      type: 'customTiming',
+      name: metric.name,
+      duration: metric.value,
+    });
+  }
 </script>
