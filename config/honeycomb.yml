@@ -1,0 +1,11 @@
+default: &default
+#  key: ""
+
+development:
+  <<: *default
+
+test:
+  <<: *default
+
+production:
+  <<: *default

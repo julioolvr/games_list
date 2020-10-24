@@ -73,6 +73,7 @@ group :test do
 end
 
 group :production do
+  gem 'honeycomb-beeline'
   gem 'pg'
   gem 'sendgrid-actionmailer'
 end
